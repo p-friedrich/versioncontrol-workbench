@@ -4,8 +4,8 @@ The purpose of this workbench is, to explore the possibilities of using FreeCAD
 in conjunction with different version control software.
 
 Currently, two systems will be used:
-- Git (free and open source)
-- LoCo (proprietary Simulation Data Management software by SCALE GmbH)
+- [Git](https://git-scm.com/) (free and open source)
+- [LoCo](https://www.scale.eu/en/products/loco) (proprietary Simulation Data Management software by [SCALE GmbH](https://www.scale.eu/en))
 
 
 # Features
