@@ -73,7 +73,9 @@ class FreeCADAssembly(Assembly):
     def create_part(self, part):
         doc = FreeCAD.getDocument(self.document_name)
 
-        newdoc = FreeCAD.open(self.abspath(part['filename']))
+        newdoc = FreeCAD.openDocument(self.abspath(part['filename']))
+
+        FreeCAD.setActiveDocument(self.document_name)
 
         if len(newdoc.RootObjects) > 1:
             print("More than one root object!")

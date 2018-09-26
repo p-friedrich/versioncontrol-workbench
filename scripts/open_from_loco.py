@@ -12,8 +12,9 @@ import subprocess
 
 def main():
     basepath = os.path.dirname(sys.argv[1])
-    files = [os.path.join(basepath, f.replace("fcstd", "fatxml"))
-             for f in os.listdir(basepath)
+    fcstd_files = sys.argv[1:]
+    files = [os.path.join(basepath, '{0}.xml'.format(f))
+             for f in fcstd_files
              if f.endswith(".fcstd")]
     s = structure.Structure.from_fatxmls(basepath, filenames=files)
     jsonpath = os.path.join(basepath, "structure.json")

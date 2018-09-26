@@ -37,7 +37,7 @@ class Structure(object):
         groups = []
         parts = []
         if len(filenames) > 0:
-            source = [f for f in filenames if os.path.splitext(f)[1] == '.fatxml']
+            source = [f for f in filenames if os.path.splitext(f)[1] == '.xml']
         else:
             source = glob.glob("{0}/*.fatxml".format(basedir))
         for fn in source:
@@ -48,7 +48,7 @@ class Structure(object):
                 groups.append({'name': g[0], 'label': g[1], 'parent': parent})
                 parent = g[0]
             name, label = cls.parse_name_without_underscore(os.path.splitext(os.path.basename(fn))[0])
-            parts.append({'name': name, 'label': label, 'parent': parent, 'filename': '{0}.fcstd'.format(fn[:-7])})
+            parts.append({'name': name, 'label': label, 'parent': parent, 'filename': os.path.splitext(fn)[0]})
         groupdict = {g['name']: g for g in groups}
         groups = [v for _, v in groupdict.items()]
         return cls(groups, parts)
